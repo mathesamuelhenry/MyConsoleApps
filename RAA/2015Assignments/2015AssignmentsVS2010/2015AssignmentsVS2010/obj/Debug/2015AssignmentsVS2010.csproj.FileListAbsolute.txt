@@ -1,0 +1,16 @@
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\2015AssignmentsVS2010.exe.config
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\2015AssignmentsVS2010.exe
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\2015AssignmentsVS2010.pdb
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\Log.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\MBSDBAccess.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\MBSWSClient.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\RIAGConsoleLib.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\MySql.Data.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\Sybase.AdoNet4.AseClient.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\Npgsql.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\MBSBillingSystemsWSUtils.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\bin\Debug\Mono.Security.dll
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\obj\Debug\2015AssignmentsVS2010.csprojResolveAssemblyReference.cache
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\obj\Debug\2015AssignmentsVS2010.exe
+C:\Projects\DotNetConsoleApps\RAA\2015Assignments\2015AssignmentsVS2010\2015AssignmentsVS2010\obj\Debug\2015AssignmentsVS2010.pdb

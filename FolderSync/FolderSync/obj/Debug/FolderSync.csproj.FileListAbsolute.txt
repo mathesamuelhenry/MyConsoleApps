@@ -1,0 +1,6 @@
+C:\Projects\DotNetConsoleApps\FolderSync\FolderSync\bin\Debug\FolderSync.exe.config
+C:\Projects\DotNetConsoleApps\FolderSync\FolderSync\bin\Debug\FolderSync.exe
+C:\Projects\DotNetConsoleApps\FolderSync\FolderSync\bin\Debug\FolderSync.pdb
+C:\Projects\DotNetConsoleApps\FolderSync\FolderSync\obj\Debug\FolderSync.exe
+C:\Projects\DotNetConsoleApps\FolderSync\FolderSync\obj\Debug\FolderSync.pdb
+C:\Projects\DotNetConsoleApps\FolderSync\FolderSync\obj\Debug\FolderSync.csprojResolveAssemblyReference.cache

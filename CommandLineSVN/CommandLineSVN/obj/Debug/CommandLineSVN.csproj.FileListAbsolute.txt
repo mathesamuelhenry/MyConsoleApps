@@ -1,0 +1,7 @@
+C:\Projects\DotNetConsoleApps\CommandLineSVN\CommandLineSVN\bin\Debug\CommandLineSVN.exe.config
+C:\Projects\DotNetConsoleApps\CommandLineSVN\CommandLineSVN\bin\Debug\CommandLineSVN.exe
+C:\Projects\DotNetConsoleApps\CommandLineSVN\CommandLineSVN\bin\Debug\CommandLineSVN.pdb
+C:\Projects\DotNetConsoleApps\CommandLineSVN\CommandLineSVN\obj\Debug\CommandLineSVN.csprojResolveAssemblyReference.cache
+C:\Projects\DotNetConsoleApps\CommandLineSVN\CommandLineSVN\obj\Debug\CommandLineSVN.exe
+C:\Projects\DotNetConsoleApps\CommandLineSVN\CommandLineSVN\obj\Debug\CommandLineSVN.pdb
+C:\Projects\DotNetConsoleApps\CommandLineSVN\CommandLineSVN\bin\Debug\Log.dll

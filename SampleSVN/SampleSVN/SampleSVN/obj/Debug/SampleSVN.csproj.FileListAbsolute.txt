@@ -1,0 +1,6 @@
+C:\Projects\DotNetConsoleApps\SampleSVN\SampleSVN\SampleSVN\bin\Debug\SampleSVN.exe.config
+C:\Projects\DotNetConsoleApps\SampleSVN\SampleSVN\SampleSVN\bin\Debug\SampleSVN.exe
+C:\Projects\DotNetConsoleApps\SampleSVN\SampleSVN\SampleSVN\bin\Debug\SampleSVN.pdb
+C:\Projects\DotNetConsoleApps\SampleSVN\SampleSVN\SampleSVN\obj\Debug\SampleSVN.exe
+C:\Projects\DotNetConsoleApps\SampleSVN\SampleSVN\SampleSVN\obj\Debug\SampleSVN.pdb
+C:\Projects\DotNetConsoleApps\SampleSVN\SampleSVN\SampleSVN\obj\Debug\SampleSVN.csprojResolveAssemblyReference.cache

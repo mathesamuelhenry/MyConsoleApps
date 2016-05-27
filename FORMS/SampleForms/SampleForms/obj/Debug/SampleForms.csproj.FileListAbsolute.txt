@@ -1,0 +1,8 @@
+C:\Projects\DotNetConsoleApps\FORMS\SampleForms\SampleForms\bin\Debug\SampleForms.exe.config
+C:\Projects\DotNetConsoleApps\FORMS\SampleForms\SampleForms\bin\Debug\SampleForms.exe
+C:\Projects\DotNetConsoleApps\FORMS\SampleForms\SampleForms\bin\Debug\SampleForms.pdb
+C:\Projects\DotNetConsoleApps\FORMS\SampleForms\SampleForms\obj\Debug\SampleForms.Form1.resources
+C:\Projects\DotNetConsoleApps\FORMS\SampleForms\SampleForms\obj\Debug\SampleForms.Properties.Resources.resources
+C:\Projects\DotNetConsoleApps\FORMS\SampleForms\SampleForms\obj\Debug\SampleForms.csproj.GenerateResource.Cache
+C:\Projects\DotNetConsoleApps\FORMS\SampleForms\SampleForms\obj\Debug\SampleForms.exe
+C:\Projects\DotNetConsoleApps\FORMS\SampleForms\SampleForms\obj\Debug\SampleForms.pdb

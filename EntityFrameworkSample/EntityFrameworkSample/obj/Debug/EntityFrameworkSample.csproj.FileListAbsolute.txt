@@ -1,0 +1,8 @@
+C:\Projects\DotNetConsoleApps\EntityFrameworkSample\EntityFrameworkSample\bin\Debug\EntityFrameworkSample.exe.config
+C:\Projects\DotNetConsoleApps\EntityFrameworkSample\EntityFrameworkSample\bin\Debug\EntityFrameworkSample.exe
+C:\Projects\DotNetConsoleApps\EntityFrameworkSample\EntityFrameworkSample\bin\Debug\EntityFrameworkSample.pdb
+C:\Projects\DotNetConsoleApps\EntityFrameworkSample\EntityFrameworkSample\bin\Debug\EntityFramework.dll
+C:\Projects\DotNetConsoleApps\EntityFrameworkSample\EntityFrameworkSample\bin\Debug\EntityFramework.xml
+C:\Projects\DotNetConsoleApps\EntityFrameworkSample\EntityFrameworkSample\obj\Debug\EntityFrameworkSample.csprojResolveAssemblyReference.cache
+C:\Projects\DotNetConsoleApps\EntityFrameworkSample\EntityFrameworkSample\obj\Debug\EntityFrameworkSample.exe
+C:\Projects\DotNetConsoleApps\EntityFrameworkSample\EntityFrameworkSample\obj\Debug\EntityFrameworkSample.pdb

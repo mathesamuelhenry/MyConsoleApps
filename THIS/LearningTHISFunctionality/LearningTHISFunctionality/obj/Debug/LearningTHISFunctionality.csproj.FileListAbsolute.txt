@@ -1,0 +1,6 @@
+C:\Projects\DotNetConsoleApps\THIS\LearningTHISFunctionality\LearningTHISFunctionality\bin\Debug\LearningTHISFunctionality.exe.config
+C:\Projects\DotNetConsoleApps\THIS\LearningTHISFunctionality\LearningTHISFunctionality\bin\Debug\LearningTHISFunctionality.exe
+C:\Projects\DotNetConsoleApps\THIS\LearningTHISFunctionality\LearningTHISFunctionality\bin\Debug\LearningTHISFunctionality.pdb
+C:\Projects\DotNetConsoleApps\THIS\LearningTHISFunctionality\LearningTHISFunctionality\obj\Debug\LearningTHISFunctionality.csprojResolveAssemblyReference.cache
+C:\Projects\DotNetConsoleApps\THIS\LearningTHISFunctionality\LearningTHISFunctionality\obj\Debug\LearningTHISFunctionality.exe
+C:\Projects\DotNetConsoleApps\THIS\LearningTHISFunctionality\LearningTHISFunctionality\obj\Debug\LearningTHISFunctionality.pdb

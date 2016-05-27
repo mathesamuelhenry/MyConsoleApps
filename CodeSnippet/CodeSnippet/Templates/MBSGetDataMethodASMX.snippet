@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MBSWebMethodASMX</Title>
+      <Shortcut>MBSWebMethodASMX</Shortcut>
+      <Description>Code snippet to generate the ASMX web method definition</Description>
+      <Author>Samuel Mathe</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>description</ID>
+          <ToolTip>Web Method Description</ToolTip>
+          <Default>WEB METHOD DESCRIPTION SHOULD BE HERE</Default>
+        </Literal>
+        <Literal>
+          <ID>returnType</ID>
+          <ToolTip>MBS ResultData Return Type</ToolTip>
+          <Default>RIAG.MBS.WS.MBSResultData</Default>
+        </Literal>
+        <Literal>
+          <ID>methodName</ID>
+          <ToolTip>Web Method Name</ToolTip>
+          <Default>YOUR_METHOD_NAME</Default>
+        </Literal>
+        <Literal>
+          <ID>classType</ID>
+          <ToolTip>MBS Class Type Name</ToolTip>
+          <Default>RIAG.MBS.WS.MBSWSGetData</Default>
+        </Literal>
+        <Literal>
+          <ID>dbConn</ID>
+          <ToolTip>MBS DB Connection</ToolTip>
+          <Default>RIAG.MBS.WS.MBSDB.DB_MBSGlobal</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[
+        [WebMethod(EnableSession = true, Description = "$description$")]
+	public $returnType$ $methodName$(string session_id)
+	{
+	$returnType$ mbsResultData = new $returnType$();
+	string wsMethodCall = this.GetServiceName(MethodInfo.GetCurrentMethod().Name.ToString());
+	$classType$ mbsData = null;
+
+	try
+	{
+	mbsData = new $classType$();
+
+	//set DB connection properties
+	mbsData.DbConns = this.GetMBSGlobal().MbsDbConnections;
+	mbsData.DbName = $dbConn$;
+
+	//get SQL
+	mbsData.Sql = this.GetMBSGlobal().GetWSSQL(wsMethodCall);
+
+	// Execute
+	mbsResultData = mbsData.Execute(session_id, this.Context.Request.UserHostAddress, this.GetMBSGlobal().GetMethodPermissionList(wsMethodCall), this.GetConfigWSMBSAuth().UserSessionExpireMins);
+
+	// Log it
+	this.LogEntry(wsMethodCall, mbsData, mbsResultData);
+	}
+	catch (Exception ex)
+	{
+	mbsResultData.Code = (int)RIAG.MBS.WS.UserApplicationErrors.ErrorMsgCodes.MBS_SYSTEM_ERROR;
+	mbsResultData.Message = ex.Message;
+	this.GetMBSGlobal().AddErrorLog(session_id, wsMethodCall, ex, mbsData);
+	}
+
+	return mbsResultData;
+	}$end$]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

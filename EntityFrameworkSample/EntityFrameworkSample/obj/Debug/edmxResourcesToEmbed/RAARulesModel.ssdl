@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="sales_assignmentModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="field">
+    <Key>
+      <PropertyRef Name="field_id" />
+    </Key>
+    <Property Name="field_id" Type="int" Nullable="false" />
+    <Property Name="field_name" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="sql_column_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="active" Type="tinyint" Nullable="false" />
+    <Property Name="date_added" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="user_added" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="date_changed" Type="datetime" Precision="0" />
+    <Property Name="user_changed" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="master_rule">
+    <Key>
+      <PropertyRef Name="master_rule_id" />
+    </Key>
+    <Property Name="master_rule_id" Type="int" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="year" Type="int" Nullable="false" />
+    <Property Name="expression" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="sql_filter" Type="text" Nullable="false" />
+    <Property Name="result_field_id" Type="int" Nullable="false" />
+    <Property Name="active" Type="tinyint" Nullable="false" />
+    <Property Name="date_added" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="user_added" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="date_changed" Type="datetime" Precision="0" />
+    <Property Name="user_changed" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="rule_field_map">
+    <Key>
+      <PropertyRef Name="rule_field_map_id" />
+    </Key>
+    <Property Name="rule_field_map_id" Type="int" Nullable="false" />
+    <Property Name="master_rule_id" Type="int" Nullable="false" />
+    <Property Name="field_id" Type="int" Nullable="false" />
+    <Property Name="active" Type="tinyint" Nullable="false" />
+    <Property Name="date_added" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="user_added" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="date_changed" Type="datetime" Precision="0" />
+    <Property Name="user_changed" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="rule_field_value">
+    <Key>
+      <PropertyRef Name="rule_field_value_id" />
+    </Key>
+    <Property Name="rule_field_value_id" Type="int" Nullable="false" />
+    <Property Name="rule_field_map_id" Type="int" Nullable="false" />
+    <Property Name="row_id" Type="int" Nullable="false" />
+    <Property Name="value" Type="varchar" MaxLength="60" />
+    <Property Name="active" Type="tinyint" Nullable="false" />
+    <Property Name="date_added" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="user_added" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="date_changed" Type="datetime" Precision="0" />
+    <Property Name="user_changed" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="master_rule_ibfk_1">
+    <End Role="field" Type="Self.field" Multiplicity="1" />
+    <End Role="master_rule" Type="Self.master_rule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="field">
+        <PropertyRef Name="field_id" />
+      </Principal>
+      <Dependent Role="master_rule">
+        <PropertyRef Name="result_field_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rule_field_map_ibfk_1">
+    <End Role="master_rule" Type="Self.master_rule" Multiplicity="1" />
+    <End Role="rule_field_map" Type="Self.rule_field_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="master_rule">
+        <PropertyRef Name="master_rule_id" />
+      </Principal>
+      <Dependent Role="rule_field_map">
+        <PropertyRef Name="master_rule_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rule_field_map_ibfk_2">
+    <End Role="field" Type="Self.field" Multiplicity="1" />
+    <End Role="rule_field_map" Type="Self.rule_field_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="field">
+        <PropertyRef Name="field_id" />
+      </Principal>
+      <Dependent Role="rule_field_map">
+        <PropertyRef Name="field_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="rule_field_value_ibfk_1">
+    <End Role="rule_field_map" Type="Self.rule_field_map" Multiplicity="1" />
+    <End Role="rule_field_value" Type="Self.rule_field_value" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="rule_field_map">
+        <PropertyRef Name="rule_field_map_id" />
+      </Principal>
+      <Dependent Role="rule_field_value">
+        <PropertyRef Name="rule_field_map_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="esp_getlock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="sales_assignment">
+    <Parameter Name="i_table_name" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="sales_assignmentModelStoreContainer">
+    <EntitySet Name="field" EntityType="Self.field" Schema="sales_assignment" store:Type="Tables" />
+    <EntitySet Name="master_rule" EntityType="Self.master_rule" Schema="sales_assignment" store:Type="Tables" />
+    <EntitySet Name="rule_field_map" EntityType="Self.rule_field_map" Schema="sales_assignment" store:Type="Tables" />
+    <EntitySet Name="rule_field_value" EntityType="Self.rule_field_value" Schema="sales_assignment" store:Type="Tables" />
+    <AssociationSet Name="master_rule_ibfk_1" Association="Self.master_rule_ibfk_1">
+      <End Role="field" EntitySet="field" />
+      <End Role="master_rule" EntitySet="master_rule" />
+    </AssociationSet>
+    <AssociationSet Name="rule_field_map_ibfk_1" Association="Self.rule_field_map_ibfk_1">
+      <End Role="master_rule" EntitySet="master_rule" />
+      <End Role="rule_field_map" EntitySet="rule_field_map" />
+    </AssociationSet>
+    <AssociationSet Name="rule_field_map_ibfk_2" Association="Self.rule_field_map_ibfk_2">
+      <End Role="field" EntitySet="field" />
+      <End Role="rule_field_map" EntitySet="rule_field_map" />
+    </AssociationSet>
+    <AssociationSet Name="rule_field_value_ibfk_1" Association="Self.rule_field_value_ibfk_1">
+      <End Role="rule_field_map" EntitySet="rule_field_map" />
+      <End Role="rule_field_value" EntitySet="rule_field_value" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

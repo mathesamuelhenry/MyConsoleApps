@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="adventureworksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MakeFlag" Type="Boolean" Nullable="false" />
+    <Property Name="FinishedGoodsFlag" Type="Boolean" Nullable="false" />
+    <Property Name="Color" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="SafetyStockLevel" Type="Int16" Nullable="false" />
+    <Property Name="ReorderPoint" Type="Int16" Nullable="false" />
+    <Property Name="StandardCost" Type="Double" Nullable="false" />
+    <Property Name="ListPrice" Type="Double" Nullable="false" />
+    <Property Name="Size" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="SizeUnitMeasureCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="WeightUnitMeasureCode" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+    <Property Name="Weight" Type="Decimal" />
+    <Property Name="DaysToManufacture" Type="Int32" Nullable="false" />
+    <Property Name="ProductLine" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Class" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Style" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="ProductSubcategoryID" Type="Int32" />
+    <Property Name="ProductModelID" Type="Int32" />
+    <Property Name="SellStartDate" Type="DateTime" Nullable="false" />
+    <Property Name="SellEndDate" Type="DateTime" />
+    <Property Name="DiscontinuedDate" Type="DateTime" />
+    <Property Name="rowguid" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="productinventory">
+    <Key>
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="LocationID" Type="Int16" Nullable="false" />
+    <Property Name="Shelf" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Bin" Type="SByte" Nullable="false" />
+    <Property Name="Quantity" Type="Int16" Nullable="false" />
+    <Property Name="rowguid" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ModifiedDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityContainer Name="adventureworksEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="products" EntityType="Self.product" />
+    <EntitySet Name="productinventories" EntityType="Self.productinventory" />
+  </EntityContainer>
+</Schema>

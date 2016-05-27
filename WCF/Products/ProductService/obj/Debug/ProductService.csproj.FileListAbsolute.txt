@@ -1,0 +1,10 @@
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\bin\Debug\ProductService.exe.config
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\bin\Debug\ProductService.exe
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\bin\Debug\ProductService.pdb
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\bin\Debug\EntityFramework.dll
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\bin\Debug\ProductInterfaces.dll
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\bin\Debug\ProductInterfaces.pdb
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\bin\Debug\EntityFramework.xml
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\obj\Debug\ProductService.csprojResolveAssemblyReference.cache
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\obj\Debug\ProductService.exe
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductService\obj\Debug\ProductService.pdb

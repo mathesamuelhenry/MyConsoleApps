@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Folders>
+  <FolderSync type = "1">
+    <Source>C:\Solutions\DBA_Team\ACC\Scripts\AccurintTagRequests</Source>
+    <Destination1>\\file.br.seisint.com\backoffice\RAA\smathe_utils\Admin\Accurint</Destination1>
+  </FolderSync>
+  <LogFile>C:\Scheduled\FolderSync\Log\FolderSyncLog.log</LogFile>
+</Folders>

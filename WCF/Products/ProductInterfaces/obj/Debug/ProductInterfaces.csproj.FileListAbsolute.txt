@@ -1,0 +1,4 @@
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductInterfaces\bin\Debug\ProductInterfaces.dll
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductInterfaces\bin\Debug\ProductInterfaces.pdb
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductInterfaces\obj\Debug\ProductInterfaces.dll
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductInterfaces\obj\Debug\ProductInterfaces.pdb

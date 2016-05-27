@@ -1,0 +1,8 @@
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductClient\bin\Debug\ProductClient.exe.config
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductClient\bin\Debug\ProductClient.exe
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductClient\bin\Debug\ProductClient.pdb
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductClient\bin\Debug\ProductInterfaces.dll
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductClient\bin\Debug\ProductInterfaces.pdb
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductClient\obj\Debug\ProductClient.csprojResolveAssemblyReference.cache
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductClient\obj\Debug\ProductClient.exe
+C:\Projects\DotNetConsoleApps\WCF\Products\ProductClient\obj\Debug\ProductClient.pdb

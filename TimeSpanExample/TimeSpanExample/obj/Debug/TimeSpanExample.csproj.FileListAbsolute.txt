@@ -1,0 +1,6 @@
+C:\Projects\DotNetConsoleApps\TimeSpanExample\TimeSpanExample\bin\Debug\TimeSpanExample.exe.config
+C:\Projects\DotNetConsoleApps\TimeSpanExample\TimeSpanExample\bin\Debug\TimeSpanExample.exe
+C:\Projects\DotNetConsoleApps\TimeSpanExample\TimeSpanExample\bin\Debug\TimeSpanExample.pdb
+C:\Projects\DotNetConsoleApps\TimeSpanExample\TimeSpanExample\obj\Debug\TimeSpanExample.csprojResolveAssemblyReference.cache
+C:\Projects\DotNetConsoleApps\TimeSpanExample\TimeSpanExample\obj\Debug\TimeSpanExample.exe
+C:\Projects\DotNetConsoleApps\TimeSpanExample\TimeSpanExample\obj\Debug\TimeSpanExample.pdb

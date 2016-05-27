@@ -1,0 +1,55 @@
+<configuration>
+  <baseconsole>
+
+    <ADO_DB>Name=MBSGlobal|Type=MySQL|Data Source='mbssql.br.seisint.com';Port='3306';UID='mbs_ws';PWD='mbs_wspr0d';Database='mbs';Treat Tiny As Boolean=false; allow user variables=true; Max Pool Size=500;Min Pool Size=1;</ADO_DB>
+    
+    <!-- Log file -->
+    <LogFile>..\..\Log\ConsoleAppLog.Log</LogFile>
+
+    <!-- SQL Command Timeout Seconds.  Default is 30 -->
+    <SQLCommandTimeoutSeconds></SQLCommandTimeoutSeconds>
+
+    <!-- Max records to process, for testing -->
+    <MaxRecords></MaxRecords>
+
+    <!-- Do Parallel (true|false).  -->
+    <DoParallel>false</DoParallel>
+
+    <!-- true|false
+         Send email if cannot conntect to MBS, or failure in Registering app.  Turn OFF in dev and qa, on in production  
+     -->
+    <DoFailSafeEmails>false</DoFailSafeEmails>
+
+    <!-- List of emails if program fails. Comma seperate if multiple.  Defaut is BTOperations@lexisnexis.com -->
+    <FailSafeEmails>samuel.mathe@lexisnexis.com</FailSafeEmails>
+
+    <!-- If connecting to MBS Web services, put connection credentials here -->
+    <MBSWS>
+
+      <!-- MBS Web Services server and user login -->
+      <MBSWSUrl>https://mbswsdev.seisint.com/BillingSystemsMBS</MBSWSUrl>
+      <MBSWSPort></MBSWSPort>
+      <Domain>--service account domain here--</Domain>
+      <LoginId>--service account login id here--</LoginId>
+      <Password>--service account pw here --</Password>
+
+      <!-- If registering app runs in MBS Console Apps, set app code here and set RegisterAppWithMBS=true-->
+      <AppCode>MY_APP_NAME_HERE</AppCode>
+      <RegisterAppWithMBS>false</RegisterAppWithMBS>
+
+      <!-- If you want all MBSWSClient Request call and their parameters logged, set WebServiceLogging=true-->
+      <WebServiceLogging>false</WebServiceLogging>
+
+      <!-- Declare number of MBSWSClient instances if using MBSWSClient Pooling.  Default is 10. -->
+      <MBSWSClientPoolCount></MBSWSClientPoolCount>
+
+    </MBSWS>
+  </baseconsole>
+
+  <!-- App Specific con-->
+  <TestApp>
+
+    <!--Your App specific Config settings here-->
+
+  </TestApp>
+</configuration>

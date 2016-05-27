@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CodeSnippets
+    xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>MBSWebAPIGetDataMethod</Title>
+      <Shortcut>MBSWebAPIGetDataMethod</Shortcut>
+      <Description>Code snippet to generate the MBSWebAPI GetData Method</Description>
+      <Author>Samuel Mathe</Author>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>description</ID>
+          <ToolTip>Web Method Description</ToolTip>
+          <Default>WEB METHOD DESCRIPTION SHOULD BE HERE</Default>
+        </Literal>
+        <Literal>
+          <ID>requestClass</ID>
+          <ToolTip>Request Custom Class</ToolTip>
+          <Default>MBSAPIRequest</Default>
+        </Literal>
+        <Literal>
+          <ID>methodName</ID>
+          <ToolTip>Web Method Name</ToolTip>
+          <Default>YOUR_METHOD_NAME</Default>
+        </Literal>
+        <Literal>
+          <ID>classType</ID>
+          <ToolTip>MBS Class Name</ToolTip>
+          <Default>MBSWebAPIGetData</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="csharp">
+        <![CDATA[
+        /// <summary>
+        /// $description$
+        /// </summary>
+        [HttpPost]
+        public MBSResultDataGeneric<DataTable> $methodName$($requestClass$ request)
+        {
+            string wsMethodCall = this.GetServiceName(MethodBase.GetCurrentMethod().Name);
+            var mbswsGetData = new $classType$()
+            {
+                DbName = RIAG.MBS.WS.MBSDB.DB_MBSGlobal,
+                Sql = GetMBSGlobal().GetWSSQL(wsMethodCall),
+                Request = request
+            };
+
+            return CallMethod(request, wsMethodCall, mbswsGetData);
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

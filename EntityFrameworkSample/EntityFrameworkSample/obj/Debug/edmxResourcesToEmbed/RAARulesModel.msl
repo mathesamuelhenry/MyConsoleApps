@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="sales_assignmentModelStoreContainer" CdmEntityContainer="RAARulesEntities">
+    <EntitySetMapping Name="fields">
+      <EntityTypeMapping TypeName="sales_assignmentModel.field">
+        <MappingFragment StoreEntitySet="field">
+          <ScalarProperty Name="field_id" ColumnName="field_id" />
+          <ScalarProperty Name="field_name" ColumnName="field_name" />
+          <ScalarProperty Name="sql_column_name" ColumnName="sql_column_name" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+          <ScalarProperty Name="user_added" ColumnName="user_added" />
+          <ScalarProperty Name="date_changed" ColumnName="date_changed" />
+          <ScalarProperty Name="user_changed" ColumnName="user_changed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="master_rule">
+      <EntityTypeMapping TypeName="sales_assignmentModel.master_rule">
+        <MappingFragment StoreEntitySet="master_rule">
+          <ScalarProperty Name="master_rule_id" ColumnName="master_rule_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="expression" ColumnName="expression" />
+          <ScalarProperty Name="sql_filter" ColumnName="sql_filter" />
+          <ScalarProperty Name="result_field_id" ColumnName="result_field_id" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+          <ScalarProperty Name="user_added" ColumnName="user_added" />
+          <ScalarProperty Name="date_changed" ColumnName="date_changed" />
+          <ScalarProperty Name="user_changed" ColumnName="user_changed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rule_field_map">
+      <EntityTypeMapping TypeName="sales_assignmentModel.rule_field_map">
+        <MappingFragment StoreEntitySet="rule_field_map">
+          <ScalarProperty Name="rule_field_map_id" ColumnName="rule_field_map_id" />
+          <ScalarProperty Name="master_rule_id" ColumnName="master_rule_id" />
+          <ScalarProperty Name="field_id" ColumnName="field_id" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+          <ScalarProperty Name="user_added" ColumnName="user_added" />
+          <ScalarProperty Name="date_changed" ColumnName="date_changed" />
+          <ScalarProperty Name="user_changed" ColumnName="user_changed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rule_field_value">
+      <EntityTypeMapping TypeName="sales_assignmentModel.rule_field_value">
+        <MappingFragment StoreEntitySet="rule_field_value">
+          <ScalarProperty Name="rule_field_value_id" ColumnName="rule_field_value_id" />
+          <ScalarProperty Name="rule_field_map_id" ColumnName="rule_field_map_id" />
+          <ScalarProperty Name="row_id" ColumnName="row_id" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="active" ColumnName="active" />
+          <ScalarProperty Name="date_added" ColumnName="date_added" />
+          <ScalarProperty Name="user_added" ColumnName="user_added" />
+          <ScalarProperty Name="date_changed" ColumnName="date_changed" />
+          <ScalarProperty Name="user_changed" ColumnName="user_changed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="esp_getlock" FunctionName="sales_assignmentModel.Store.esp_getlock" />
+  </EntityContainerMapping>
+</Mapping>
