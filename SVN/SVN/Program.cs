@@ -82,119 +82,158 @@ namespace SVN
         }
     }
 
-    class Program
+    public class DataRestrictionMask
     {
-        public static List<Group> GroupList = new List<Group>();
-        public static List<string> ResultGroupList = new List<string>();
-
-        public static void GetChildGroups(List<string> ChildGroupList)
+        public enum DataRestrictionMaskPostion : int
         {
-            foreach(string rcgroup_id in ChildGroupList)
+            FARESBlacklist = 0,
+            QSent = 1, // No web method for this yet
+            EBR = 2,
+            WeeklyHeader = 3,
+            Fidelity = 4, // No web method for this yet
+            ECR = 5,
+            Certegy = 6,
+            Equifax = 7,
+            QsentGatewayRequestCredential = 8,
+            TransUnionCreditHeaderRestrict = 9,
+            Teletrack = 10,
+            ModelingShell4 = 11,
+            BureauDeceasedData = 12,
+            ExperianFCRAHeader = 13,
+            PhoneFinder = 14,
+            InquiryTrackingOptIn = 15,
+            InfutorMotorVehicles = 16,
+            InfutorWatercrafts = 17,
+            Enclarity = 18,
+            PhoneFinderTargus = 19,
+            NCPDP = 20,
+            SKA = 21,
+            PreGLBA = 22,
+            EquifaxPhones = 23,
+            FDNMarketActivity = 24,
+            ThreatMetrix = 25 // added by mathsa01 per JIRA AA-675
+        }
+
+        class Program
+        {
+            public static List<Group> GroupList = new List<Group>();
+            public static List<string> ResultGroupList = new List<string>();
+
+            public static void GetChildGroups(List<string> ChildGroupList)
             {
-                string group_id = (from grp in GroupList
-                                   where grp.group_id == rcgroup_id
-                                   select grp.group_id).FirstOrDefault().ToString();
-
-                List<string> groupList = (from grp in GroupList
-                                               where grp.parent_group_id == group_id
-                                               select grp.group_id).ToList();
-
-                
-                foreach (string childGroupid in groupList)
+                foreach (string rcgroup_id in ChildGroupList)
                 {
-                    ResultGroupList.Add(childGroupid);
-                    string cgroup_id = (from grp in GroupList
-                                        where grp.group_id == childGroupid
+                    string group_id = (from grp in GroupList
+                                       where grp.group_id == rcgroup_id
                                        select grp.group_id).FirstOrDefault().ToString();
 
-                    List<string> cGroupList = (from grp in GroupList
-                                               where grp.parent_group_id == cgroup_id
-                                               select grp.group_id).ToList();
+                    List<string> groupList = (from grp in GroupList
+                                              where grp.parent_group_id == group_id
+                                              select grp.group_id).ToList();
 
-                    if (cGroupList != null && cGroupList.Count > 0)
+
+                    foreach (string childGroupid in groupList)
                     {
-                        GetChildGroups(cGroupList);
+                        ResultGroupList.Add(childGroupid);
+                        string cgroup_id = (from grp in GroupList
+                                            where grp.group_id == childGroupid
+                                            select grp.group_id).FirstOrDefault().ToString();
+
+                        List<string> cGroupList = (from grp in GroupList
+                                                   where grp.parent_group_id == cgroup_id
+                                                   select grp.group_id).ToList();
+
+                        if (cGroupList != null && cGroupList.Count > 0)
+                        {
+                            GetChildGroups(cGroupList);
+                        }
                     }
                 }
             }
-        }
 
-        public static void Main(string[] args)
-        {
-            SFTP downloadFTP = null;
-
-            AddressInfo ftpInfo = new AddressInfo();
-
-            ftpInfo.Host = "mbsweb01.br.seisint.com";
-            ftpInfo.Username = "ws_dost";
-            ftpInfo.Password = "Seisint1";
-            ftpInfo.Timeout = "300";
-            ftpInfo.License = "8LQW-N7VA-VYDJ-C29F";
-            ftpInfo.Blocking = "true";
-
-            FTPConfig.DownloadFTPAddress = ftpInfo;
-
-            try
+            public static void Main(string[] args)
             {
-                downloadFTP = FTPConnection.getFTPConnection();
-                downloadFTP.Connect();
+                string UsageOptionOffset = "6";
+                DataRestrictionMask.DataRestrictionMaskPostion DataRestrictionPosition;
+                //DataRestrictionPosition = (DataRestrictionMask.DataRestrictionMaskPostion)Enum.Parse(typeof(DataRestrictionMask.DataRestrictionMaskPostion), UsageOptionOffset);
+                DataRestrictionPosition = (DataRestrictionMask.DataRestrictionMaskPostion)int.Parse(UsageOptionOffset) - 1;
+                Console.WriteLine(DataRestrictionPosition.ToString());
+                Console.WriteLine("");
 
-                // Create folder if not already exists in IIS server to hold the files from the server for processing.
-                if (!Directory.Exists("..\\..\\Documents\\"))
+                /*SFTP downloadFTP = null;
+
+                AddressInfo ftpInfo = new AddressInfo();
+
+                ftpInfo.Host = "mbsweb01.br.seisint.com";
+                ftpInfo.Username = "ws_dost";
+                ftpInfo.Password = "Seisint1";
+                ftpInfo.Timeout = "300";
+                ftpInfo.License = "8LQW-N7VA-VYDJ-C29F";
+                ftpInfo.Blocking = "true";
+
+                FTPConfig.DownloadFTPAddress = ftpInfo;
+
+                try
                 {
-                    Directory.CreateDirectory("..\\..\\Documents\\");
+                    downloadFTP = FTPConnection.getFTPConnection();
+                    downloadFTP.Connect();
+
+                    // Create folder if not already exists in IIS server to hold the files from the server for processing.
+                    if (!Directory.Exists("..\\..\\Documents\\"))
+                    {
+                        Directory.CreateDirectory("..\\..\\Documents\\");
+                    }
+
+                    // Get file from remote server to local path.
+                    downloadFTP.GetFile("..\\..\\Documents\\", "/u/mbs_uploads/accassi/201603/1457376627.csv");
+
+                    downloadFTP.Disconnect();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+                */
+
+
+
+                /*GroupList.Add(new Group("SECURITY1", "1", ""));
+                GroupList.Add(new Group("SECURITY", "2", "1"));
+                GroupList.Add(new Group("INVWORKBENCH", "3", "1"));
+                GroupList.Add(new Group("COMPANY", "4", "2"));
+                GroupList.Add(new Group("MISCELLANEOUS", "5", "1"));
+                GroupList.Add(new Group("INVWORKBENCH", "6", ""));
+                GroupList.Add(new Group("INVWORKBENCH", "7", ""));
+
+                string inputGroup = "SECURITY1";
+
+                ResultGroupList = new List<string>();
+
+
+                string group_id = (from grp in GroupList
+                                   where grp.group_code == inputGroup
+                                   select grp.group_id).FirstOrDefault().ToString();
+
+                ResultGroupList.Add(group_id);
+
+                List<string> ChildGroupList = (from grp in GroupList
+                                               where grp.parent_group_id == group_id
+                                               select grp.group_id).ToList();
+
+                foreach (string grp in ChildGroupList)
+                {
+                    ResultGroupList.Add(grp);
                 }
 
-                // Get file from remote server to local path.
-                downloadFTP.GetFile("..\\..\\Documents\\", "/u/mbs_uploads/accassi/201603/1457376627.csv");
 
-                downloadFTP.Disconnect();
+                GetChildGroups(ChildGroupList);
+
+
+                foreach (string grp in ResultGroupList)
+                {
+                    Console.WriteLine(grp);
+                }*/
             }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-
-
-
-
-            /*GroupList.Add(new Group("SECURITY1", "1", ""));
-            GroupList.Add(new Group("SECURITY", "2", "1"));
-            GroupList.Add(new Group("INVWORKBENCH", "3", "1"));
-            GroupList.Add(new Group("COMPANY", "4", "2"));
-            GroupList.Add(new Group("MISCELLANEOUS", "5", "1"));
-            GroupList.Add(new Group("INVWORKBENCH", "6", ""));
-            GroupList.Add(new Group("INVWORKBENCH", "7", ""));
-
-            string inputGroup = "SECURITY1";
-
-            ResultGroupList = new List<string>();
-
-
-            string group_id = (from grp in GroupList
-                               where grp.group_code == inputGroup
-                               select grp.group_id).FirstOrDefault().ToString();
-
-            ResultGroupList.Add(group_id);
-
-            List<string> ChildGroupList = (from grp in GroupList
-                                           where grp.parent_group_id == group_id
-                                           select grp.group_id).ToList();
-
-            foreach (string grp in ChildGroupList)
-            {
-                ResultGroupList.Add(grp);
-            }
-
-
-            GetChildGroups(ChildGroupList);
-
-
-            foreach (string grp in ResultGroupList)
-            {
-                Console.WriteLine(grp);
-            }*/
-        }
 
 
 
@@ -247,83 +286,84 @@ namespace SVN
             }*/
 
 
-            
 
 
-            
 
-            
-            
-            
 
-        
 
-        public static string[] Tokenize(string equation)
-        {
-            Regex RE = new Regex(@"([\+\-\*\(\)\^\\])");
-            return (RE.Split(equation));
+
+
+
+
+
+
+            public static string[] Tokenize(string equation)
+            {
+                Regex RE = new Regex(@"([\+\-\*\(\)\^\\])");
+                return (RE.Split(equation));
+            }
         }
+
+        /*
+        public class student
+        {
+            public string id { get; set; }
+            public string name { get; set; }
+            public student()
+            { 
+            }
+            public student(string id, string name)
+            {
+                this.id = id;
+                this.name = name;
+            }
+
+            public string ToXML()
+            {
+                var stringwriter = new System.IO.StringWriter();
+                var serializer = new XmlSerializer(this.GetType(), string.Empty);
+
+                XmlSerializerNamespaces xmlSerializerNamespaces = new XmlSerializerNamespaces();
+                xmlSerializerNamespaces.Add(string.Empty, string.Empty);
+
+                XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
+                xmlWriterSettings.OmitXmlDeclaration = true;
+
+                XmlWriter xmlWriter = XmlWriter.Create(stringwriter, xmlWriterSettings);
+
+                serializer.Serialize(xmlWriter, this, xmlSerializerNamespaces);
+                return stringwriter.ToString();
+            }
+        }
+
+
+        [Serializable]
+        public class GroupAttribute : ICloneable
+        {
+            public bool ReadOnly { get; set; }
+            public bool Display { get; set; }
+
+            public GroupAttribute() { }
+
+            public GroupAttribute(bool readOnly, bool display)
+            {
+                this.ReadOnly = readOnly;
+                this.Display = display;
+            }
+
+            public object Clone()
+            {
+                MemoryStream ms = new MemoryStream();
+                BinaryFormatter bf = new BinaryFormatter();
+
+                bf.Serialize(ms, this);
+
+                ms.Position = 0;
+                object obj = bf.Deserialize(ms);
+                ms.Close();
+
+                return obj;
+            }
+        }*/
     }
-
-    /*
-    public class student
-    {
-        public string id { get; set; }
-        public string name { get; set; }
-        public student()
-        { 
-        }
-        public student(string id, string name)
-        {
-            this.id = id;
-            this.name = name;
-        }
-
-        public string ToXML()
-        {
-            var stringwriter = new System.IO.StringWriter();
-            var serializer = new XmlSerializer(this.GetType(), string.Empty);
-
-            XmlSerializerNamespaces xmlSerializerNamespaces = new XmlSerializerNamespaces();
-            xmlSerializerNamespaces.Add(string.Empty, string.Empty);
-
-            XmlWriterSettings xmlWriterSettings = new XmlWriterSettings();
-            xmlWriterSettings.OmitXmlDeclaration = true;
-
-            XmlWriter xmlWriter = XmlWriter.Create(stringwriter, xmlWriterSettings);
-
-            serializer.Serialize(xmlWriter, this, xmlSerializerNamespaces);
-            return stringwriter.ToString();
-        }
-    }
-
-
-    [Serializable]
-    public class GroupAttribute : ICloneable
-    {
-        public bool ReadOnly { get; set; }
-        public bool Display { get; set; }
-
-        public GroupAttribute() { }
-
-        public GroupAttribute(bool readOnly, bool display)
-        {
-            this.ReadOnly = readOnly;
-            this.Display = display;
-        }
-
-        public object Clone()
-        {
-            MemoryStream ms = new MemoryStream();
-            BinaryFormatter bf = new BinaryFormatter();
-
-            bf.Serialize(ms, this);
-
-            ms.Position = 0;
-            object obj = bf.Deserialize(ms);
-            ms.Close();
-
-            return obj;
-        }
-    }*/
 }
