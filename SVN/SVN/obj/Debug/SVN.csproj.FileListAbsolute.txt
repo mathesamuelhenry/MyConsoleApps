@@ -70,3 +70,6 @@ C:\Projects\DotNetConsoleApps\SVN\SVN\obj\Debug\SVN.pdb
 C:\Projects\DotNetConsoleApps\SVN\SVN\obj\Debug\SVN.csprojResolveAssemblyReference.cache
 C:\Projects\DotNetConsoleApps\SVN\SVN\bin\Debug\ws_riskwise_API_lib.dll
 C:\Projects\DotNetConsoleApps\SVN\SVN\bin\Debug\ws_controls_API_lib.dll
+C:\Projects\DotNetConsoleApps\SVN\SVN\bin\Debug\System.Net.Http.Formatting.dll
+C:\Projects\DotNetConsoleApps\SVN\SVN\bin\Debug\ws_ins_tlmxdrvrsupport_API_lib.dll
+C:\Projects\DotNetConsoleApps\SVN\SVN\bin\Debug\ICSharpCode.SharpZipLib.dll

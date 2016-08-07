@@ -114,6 +114,68 @@ namespace SVN
             ThreatMetrix = 25 // added by mathsa01 per JIRA AA-675
         }
 
+        public enum DataRestrictionIndex
+        {
+            FaresBlackList,                  // 1
+            QSend,                           // 2
+            ExperianBlacklist,               // 3
+            WeeklyHeaderRestriction,         // 4
+            Fidelity,                        // 5
+            ExperianCreditHeader,            // 6
+            Certegy,                         // 7
+            Equifax,                         // 8
+            QsentGatewayRequestCredential,   // 9
+            TransUnionCreditHeader,          // 10
+            Teletrack,                       // 11
+            ModelingShell4,                  // 12
+            BureauDeceasedData,              // 13
+            ExperianFCRAHeader,              // 14
+            PhoneFinder,                     // 15
+            InquireTrackingOptIn,            // 16
+            InfutorMotorVehicles,            // 17
+            InfutorWatercrafts,              // 18
+            Enclarity,                       // 19
+            PhoneFinderTargus,               // 20
+            NCPDP,                           // 21
+            SKA,                             // 22
+            PreGLBA,                         // 23
+            EquifaxPhoneMart,                // 24
+            FDNMarketActivity,               // 25
+            ThreatMetrix,                    // 26
+            DefinitiveHealthcare,            // 27
+            MDSI,                            // 28
+            StateLicenses,                   // 29
+            AHA,                             // 30
+
+            MaxDataRestrictionIndex // keep this at the end
+        } // public enum DataRestrictionIndex
+
+        public enum DataPermissionIndex : int
+        {
+            QSent = 0,                    // 1   
+            Targus,                       // 2
+            TargusConfirmConnect,         // 3
+            DataPermissionOpen,           // 4
+            AccurintLE,                   // 5
+            LastResortPhones,             // 6
+            PolkGateway,                  // 7
+            MidexNonpublic,               // 8
+            MidexFreddieMac,              // 9
+            RestrictedDeathSource,        // 10
+            FDNMarketEvent,               // 11 
+            SBFE,                         // 12 
+            InsuranceDL,                  // 13
+            ABMS,                         // 14
+            DMD,                          // 15
+            HIBCC,                        // 16
+            StateLicenseAddress,          // 17
+            StateLicenseLicNbr,           // 18
+            NCPDPFull,                    // 19
+            Surescripts,                  // 20
+
+            MaxDataPermissionIndex
+        } // public enum DataPermissionIndex
+
         class Program
         {
             public static List<Group> GroupList = new List<Group>();
@@ -153,12 +215,32 @@ namespace SVN
 
             public static void Main(string[] args)
             {
-                string UsageOptionOffset = "6";
-                DataRestrictionMask.DataRestrictionMaskPostion DataRestrictionPosition;
-                //DataRestrictionPosition = (DataRestrictionMask.DataRestrictionMaskPostion)Enum.Parse(typeof(DataRestrictionMask.DataRestrictionMaskPostion), UsageOptionOffset);
-                DataRestrictionPosition = (DataRestrictionMask.DataRestrictionMaskPostion)int.Parse(UsageOptionOffset) - 1;
-                Console.WriteLine(DataRestrictionPosition.ToString());
-                Console.WriteLine("");
+
+                string m = "<ArrayOfDataMaskResponse><DataMaskResponse><name>AHA</name><value>1</value><Message>DRM/DPM tag inserted/updated successfully.</Message><Code>0</Code></DataMaskResponse><DataMaskResponse><name>Certegy Restricted</name><value>1</value><Message>DRM/DPM tag inserted/updated successfully.</Message><Code>0</Code></DataMaskResponse></ArrayOfDataMaskResponse>";
+                System.Xml.XmlDocument xmlDoc = new System.Xml.XmlDocument();
+                //xmlDoc.LoadXml(RIAG.MBS.WS.Utils.SerializeObjectToXmlString<List<DataMaskResponse>>(DataMaskReponseList).ToXmlDocumentFragment().FirstChild.InnerXml);
+                xmlDoc.LoadXml(m);
+                XmlDocumentFragment frag = xmlDoc.CreateDocumentFragment();
+
+                //Create the XmlDocument.
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml("<result/>");
+
+                //Create a document fragment.
+                XmlDocumentFragment docFrag = doc.CreateDocumentFragment();
+
+                //Set the contents of the document fragment.
+                docFrag.InnerXml = "<ArrayOfDataMaskResponse><DataMaskResponse><name>AHA</name><value>1</value><Message>DRM/DPM tag inserted/updated successfully.</Message><Code>0</Code></DataMaskResponse><DataMaskResponse><name>Certegy Restricted</name><value>1</value><Message>DRM/DPM tag inserted/updated successfully.</Message><Code>0</Code></DataMaskResponse></ArrayOfDataMaskResponse>";
+
+                //Add the children of the document fragment to the
+                //original document.
+                doc.DocumentElement.AppendChild(docFrag);
+
+                Console.WriteLine("Display the modified XML...");
+                Console.WriteLine(doc.OuterXml);
+                Console.WriteLine(doc.OuterXml);
+
+
 
                 /*SFTP downloadFTP = null;
 
